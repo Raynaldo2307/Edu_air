@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+import 'package:edu_air/src/core/app_theme.dart';
+
+class QuickLinksGrid extends StatelessWidget {
+  const QuickLinksGrid({super.key, required this.links});
+
+  final List<QuickLinkItem> links;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: links.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 18,
+        childAspectRatio: 0.9,
+      ),
+      itemBuilder: (context, index) {
+        final link = links[index];
+        return QuickLinkItemWidget(item: link);
+      },
+    );
+  }
+}
+
+class QuickLinkItemWidget extends StatelessWidget {
+  const QuickLinkItemWidget({super.key, required this.item});
+
+  final QuickLinkItem item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Material(
+          elevation: 3,
+          borderRadius: BorderRadius.circular(16),
+          color: item.backgroundColor,
+          shadowColor: Colors.black.withValues(alpha:0.1),
+          child: Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Center(
+              child: Icon(item.icon, color: item.iconColor, size: 28),
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          item.label,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+            color: AppTheme.textPrimary,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class QuickLinkItem {
+  const QuickLinkItem({
+    required this.icon,
+    required this.label,
+    required this.backgroundColor,
+    this.iconColor = AppTheme.primaryColor,
+  });
+
+  final IconData icon;
+  final String label;
+  final Color backgroundColor;
+  final Color iconColor;
+}

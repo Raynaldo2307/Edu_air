@@ -39,6 +39,9 @@ dependencies:
   cloud_firestore: ^6.1.0
   firebase_storage: ^13.0.4
   flutter_animate: ^4.2.0
+  flutter_riverpod: ^2.5.1
+  google_sign_in: ^6.2.1
+
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +69,7 @@ flutter:
   assets:
       
       - assets/images/eduair_logo.png
+      - assets/images/google.png
       - assets/images/onboarding_1.png
       - assets/images/onboarding_2.png
       - assets/images/onboarding_3.png

@@ -45,5 +45,31 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- ✅ GOOGLE SIGN-IN CONFIG -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				
+				<string>com.googleusercontent.apps.513925637647-q7sfcfd562emchipgadn5lu6vt5viddr</string>
+			</array>
+		</dict>
+	</array>
+
+	<key>GoogleSignIn</key>
+	<dict>
+		<key>ClientId</key>
+		<string>513925637647-q7sfcfd562emchipgadn5lu6vt5viddr.apps.googleusercontent.com</string>
+	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This is required to discover the Dart VM Service while debugging on the local network.</string>
 </dict>
 </plist>
